@@ -47,8 +47,8 @@
     </header>
     <div class="sidebar close">
         <div class="logo-details">
-            <p class="bx textcustom" style="color: #ffbf36; margin:45px 0 50px 30px; font-size:22px;">K</p>
-            <span class="logo_name textcustom">as</span>
+            <p class="bx textcustom" style="color: #ffbf36; margin:45px 0 50px 30px; font-size:22px; font-weight:bold;">K</p>
+            <span class="logo_name textcustom" style="color: #ffbf36;">as</span>
         </div>
         <ul class="nav-links">
             <li>
