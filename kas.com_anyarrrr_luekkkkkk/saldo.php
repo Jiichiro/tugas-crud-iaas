@@ -1,20 +1,13 @@
 <?php
-
-// Koneksi ke database
-$host = 'localhost'; // Ganti dengan host database Anda
-$db = 'website'; // Ganti dengan nama database Anda
-$user = 'root'; // Ganti dengan username database Anda
-$pass = ''; // Ganti dengan password database Anda
-
-$conn = new mysqli($host, $user, $pass, $db);
+include "koneksi.php";
 
 // Periksa koneksi
-if ($conn->connect_error) {
+if ($kon->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-$user_id = $_SESSION['user_id'];
-$result = $conn->query("SELECT * FROM saldo WHERE akun_id");
+// $user_id = $_SESSION['user_id'];
+$result = $kon->query("SELECT * FROM saldo WHERE akun_id");
 
 ?>
 

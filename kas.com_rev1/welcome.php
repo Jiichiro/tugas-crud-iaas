@@ -23,6 +23,8 @@
         max-width: 150px;
         /* Sesuaikan ukuran logo */
         height: 50px;
+
+        mix-blend-mode: screen;
     }
 
     /* Memastikan logo berada di pojok kiri atas */
@@ -42,17 +44,17 @@
 
 <body>
     <header>
-        <img src="https://th.bing.com/th/id/OIP.S_BEyoTYNIwRpRXmQWtKJAHaHa?rs=1&pid=ImgDetMain" alt="Logo" class="logo"
+        <img src="./assets/images/profile.png" alt="Logo" class="logo"
             onclick="window.location.href='./logout.php'">
     </header>
     <div class="sidebar close">
         <div class="logo-details">
-            <p class="bx textcustom" style="color: #ffbf36; margin:45px 0 50px 30px; font-size:22px;">K</p>
-            <span class="logo_name textcustom">as</span>
+            <p class="bx textcustom" style="color: #ffbf36; margin:45px 0 50px 30px; font-size:22px; font-weight:bold;">K</p>
+            <span class="logo_name textcustom" style="color: #ffbf36;">as</span>
         </div>
         <ul class="nav-links">
             <li>
-                <a href="saldo.php">
+                <a href="#">
                     <i class='bx bx-grid-alt'></i>
                     <span class="link_name">Cek Saldo</span>
                 </a>

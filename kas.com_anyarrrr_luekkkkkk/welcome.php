@@ -43,7 +43,7 @@
 
 <body>
     <header>
-        <img src="https://th.bing.com/th/id/OIP.S_BEyoTYNIwRpRXmQWtKJAHaHa?rs=1&pid=ImgDetMain" alt="Logo" class="logo"
+        <img src="assets/images/profile.png" alt="Logo" class="logo"
             onclick="window.location.href='./logout.php'">
     </header>
     <div class="sidebar close">
