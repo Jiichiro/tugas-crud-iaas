@@ -11,28 +11,225 @@ $result = $kon->query("SELECT * FROM saldo WHERE akun_id");
 
 ?>
 
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <title>Cek Saldo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* Styling untuk logo */
+    .logo {
+        max-width: 150px;
+        /* Sesuaikan ukuran logo */
+        height: 50px;
+    }
+
+    /* Memastikan logo berada di pojok kiri atas */
+    header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100px;
+        z-index: 1000;
+    }
+
+    @font-face {
+        font-family: 'CustomFont';
+        src: url('Poppins-Light.ttf') format('truetype');
+    }
+
+    .main-content {
+        margin: 1rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .main-content th, .main-content td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    .main-content tr:nth-child(even){
+        background-color: lightblue;
+    }
+</style>
+
 <body>
-    <h1>Cek Saldo</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Jumlah Pembayaran</th>
-            <th>Jumlah Saldo</th>
-        </tr>
-        <?php while ($row = $result->fetch_assoc()) { ?>
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['jumlah_pembayaran']; ?></td>
-            <td><?php echo $row['jumlah_saldo']; ?></td>
-        </tr>
-        <?php } ?>
-    </table>
-    <a href="welcome.php">Kembali</a>
+    <header>
+        <img src="assets/images/profile.png" alt="Logo" class="logo" onclick="window.location.href='./logout.php'">
+    </header>
+    <div class="sidebar close">
+        <div class="logo-details">
+            <p class="bx textcustom" style="color: #ffbf36; margin:45px 0 50px 30px; font-size:22px;">K</p>
+            <span class="logo_name textcustom">as</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="saldo.php">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Cek Saldo</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Category</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Category</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Category</a></li>
+                    <li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">PHP & MySQL</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-book-alt'></i>
+                        <span class="link_name">Posts</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Posts</a></li>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">Login Form</a></li>
+                    <li><a href="#">Card Design</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="link_name">Analytics</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Analytics</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-line-chart'></i>
+                    <span class="link_name">Chart</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Chart</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-plug'></i>
+                        <span class="link_name">Plugins</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Plugins</a></li>
+                    <li><a href="#">UI Face</a></li>
+                    <li><a href="#">Pigments</a></li>
+                    <li><a href="#">Box Icons</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-compass'></i>
+                    <span class="link_name">Explore</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Explore</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-history'></i>
+                    <span class="link_name">History</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">History</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="link_name">Setting</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Setting</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="profile-details">
+
+                    <div class="name-job">
+                        <i class='bx bx-log-in'></i>
+                    </div>
+                    <div class="navbar">
+                        <div class="logout-icon">
+                            <a href="logout.php">
+                                <i class='bx bx-log-out'></i>
+                            </a>
+                        </div>
+                    </div>
+
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu'></i>
+            <span class="text">Cek Saldo</span>
+        </div>
+        <main class="main-content">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th style="width: 50%;">Jumlah Pembayaran</th>
+                    <th style="width: 50%;">Jumlah Saldo</th>
+                </tr>
+                <?php while ($row = $result->fetch_assoc()) { ?>
+                    <tr>
+                        <td style="text-align: center;"><?php echo $row['id']; ?></td>
+                        <td style="text-align: right;"><?php echo $row['jumlah_pembayaran']; ?></td>
+                        <td style="text-align: right;"><?php echo $row['jumlah_saldo']; ?></td>
+                    </tr>
+                <?php } ?>
+        </main>
+    </section>
+    <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    </script>
+
 </body>
+
 </html>
