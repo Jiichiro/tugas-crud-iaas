@@ -1,11 +1,6 @@
 <?php
 include "koneksi.php";
 
-// Periksa koneksi
-if ($kon->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
-
 // $user_id = $_SESSION['user_id'];
 $result = $kon->query("SELECT * FROM saldo WHERE akun_id");
 
