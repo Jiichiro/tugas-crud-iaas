@@ -1,9 +1,18 @@
+<?php
+include "koneksi.php";
+
+// $user_id = $_SESSION['user_id'];
+$result = $kon->query("SELECT * FROM saldo WHERE akun_id");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-
+    <title>Cek Saldo</title>
     <link rel="stylesheet" href="style.css">
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -38,6 +47,19 @@
         font-family: 'CustomFont';
         src: url('Poppins-Light.ttf') format('truetype');
     }
+
+    .main-content {
+        margin: 1rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .main-content table, .main-content th, .main-content td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    .main-content tr:nth-child(even){
+        background-color: lightblue;
+    }
 </style>
 
 <body>
@@ -47,11 +69,11 @@
     <div class="sidebar close">
         <div class="logo-details">
             <p class="bx textcustom" style="color: #ffbf36; margin:45px 0 50px 30px; font-size:22px;">K</p>
-            <span class="logo_name textcustom">as</span>
+            <span class="logo_name textcustom" style="color: #ffbf36; font-size:22px;">as</span>
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#">
+                <a href="saldo.php">
                     <i class='bx bx-grid-alt'></i>
                     <span class="link_name">Cek Saldo</span>
                 </a>
@@ -169,8 +191,23 @@
     <section class="home-section">
         <div class="home-content">
             <i class='bx bx-menu'></i>
-            <span class="text">Kas Kelas</span>
+            <span class="text">Cek Saldo</span>
         </div>
+        <main class="main-content">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th style="width: 50%;">Jumlah Pembayaran</th>
+                    <th style="width: 50%;">Jumlah Saldo</th>
+                </tr>
+                <?php while ($row = $result->fetch_assoc()) { ?>
+                    <tr>
+                        <td style="text-align: center;"><?php echo $row['id']; ?></td>
+                        <td style="text-align: right;"><?php echo $row['jumlah_pembayaran']; ?></td>
+                        <td style="text-align: right;"><?php echo $row['jumlah_saldo']; ?></td>
+                    </tr>
+                <?php } ?>
+        </main>
     </section>
     <script>
         let arrow = document.querySelectorAll(".arrow");
