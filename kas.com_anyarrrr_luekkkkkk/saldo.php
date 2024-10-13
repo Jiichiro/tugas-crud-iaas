@@ -58,7 +58,7 @@ $result = $kon->query("SELECT * FROM saldo WHERE akun_id");
         font-family: 'Poppins', sans-serif;
     }
 
-    .main-content th, .main-content td{
+    .main-content table, .main-content th, .main-content td{
         border: 1px solid black;
         border-collapse: collapse;
     }
