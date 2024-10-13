@@ -74,7 +74,7 @@ $result = $kon->query("SELECT * FROM saldo WHERE akun_id");
     <div class="sidebar close">
         <div class="logo-details">
             <p class="bx textcustom" style="color: #ffbf36; margin:45px 0 50px 30px; font-size:22px;">K</p>
-            <span class="logo_name textcustom">as</span>
+            <span class="logo_name textcustom" style="color: #ffbf36; font-size:22px;">as</span>
         </div>
         <ul class="nav-links">
             <li>
