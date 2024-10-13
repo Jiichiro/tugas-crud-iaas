@@ -69,7 +69,7 @@ $result = $kon->query("SELECT * FROM saldo WHERE akun_id");
 
 <body>
     <header>
-        <img src="assets/images/profile.png" alt="Logo" class="logo" onclick="window.location.href='./logout.php'">
+        <img src="assets/images/profile.png" alt="Logo" class="logo" onclick="window.location.href='./profile.php'">
     </header>
     <div class="sidebar close">
         <div class="logo-details">
