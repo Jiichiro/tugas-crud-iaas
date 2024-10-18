@@ -56,14 +56,14 @@
                     <span class="link_name">Cek Saldo</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Category</a></li>
+                    <li><a class="link_name" href="#">Edit Data</a></li>
                 </ul>
             </li>
             <li>
                 <div class="iocn-link">
                     <a href="#">
                         <i class='bx bx-collection'></i>
-                        <span class="link_name">Category</span>
+                        <span class="link_name">Edit Data</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow'></i>
                 </div>
