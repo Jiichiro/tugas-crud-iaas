@@ -85,7 +85,7 @@ $result = $kon->query("SELECT * FROM saldo WHERE akun_id");
                 <div class="iocn-link">
                     <a href="#">
                         <i class='bx bx-collection'></i>
-                        <span class="link_name">Category</span>
+                        <span class="link_name">Edit Data</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow'></i>
                 </div>
