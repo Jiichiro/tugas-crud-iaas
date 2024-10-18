@@ -51,7 +51,7 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#">
+                <a href="./saldo.php">
                     <i class='bx bx-grid-alt'></i>
                     <span class="link_name">Cek Saldo</span>
                 </a>
