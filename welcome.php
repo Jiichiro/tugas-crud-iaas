@@ -1,3 +1,34 @@
+<?php
+$host = "localhost";
+$dbname = "website"; // Ganti dengan nama database Anda
+$username = "root"; // Ganti dengan username database Anda
+$password = ""; // Ganti dengan password database Anda
+
+// Inisialisasi variabel
+$pemasukan = [];
+$pengeluaran = [];
+
+try {
+    // Koneksi ke database
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Mengambil data pemasukan bulan ini
+    $bulanIni = date('Y-m'); // Format tahun-bulan
+    $stmtPemasukan = $pdo->prepare("SELECT tanggal, jumlah FROM pemasukan WHERE DATE_FORMAT(tanggal, '%Y-%m') = :bulan");
+    $stmtPemasukan->execute(['bulan' => $bulanIni]);
+    $pemasukan = $stmtPemasukan->fetchAll(PDO::FETCH_ASSOC);
+
+    // Mengambil data pengeluaran bulan ini
+    $stmtPengeluaran = $pdo->prepare("SELECT tanggal, jumlah FROM pengeluaran WHERE DATE_FORMAT(tanggal, '%Y-%m') = :bulan");
+    $stmtPengeluaran->execute(['bulan' => $bulanIni]);
+    $pengeluaran = $stmtPengeluaran->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -41,6 +72,35 @@
 </style>
 
 <body>
+<h1>Pemasukan Bulan Ini</h1>
+    <table border="1">
+        <tr><th>Tanggal</th><th>Jumlah (IDR)</th></tr>
+        <?php if ($pemasukan): ?>
+            <?php foreach ($pemasukan as $row): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($row['tanggal']); ?></td>
+                    <td><?php echo number_format($row['jumlah'], 0, ',', '.'); ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr><td colspan="2">Tidak ada data pemasukan untuk bulan ini.</td></tr>
+        <?php endif; ?>
+    </table>
+
+    <h1>Pengeluaran Bulan Ini</h1>
+    <table border="1">
+        <tr><th>Tanggal</th><th>Jumlah (IDR)</th></tr>
+        <?php if ($pengeluaran): ?>
+            <?php foreach ($pengeluaran as $row): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($row['tanggal']); ?></td>
+                    <td><?php echo number_format($row['jumlah'], 0, ',', '.'); ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr><td colspan="2">Tidak ada data pengeluaran untuk bulan ini.</td></tr>
+        <?php endif; ?>
+    </table>
     <header>
         <img src="assets/images/profile.png" alt="Logo" class="logo" onclick="window.location.href='./profile.php'">
     </header>
@@ -63,14 +123,14 @@
                 <div class="iocn-link">
                     <a href="#">
                         <i class='bx bx-collection'></i>
-                        <span class="link_name">Edit Data</span>
+                        <span class="link_name">Edit/Upload Data</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow'></i>
                 </div>
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Category</a></li>
-                    <li><a href="#">HTML & CSS</a></li>
-                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="./upload_data.php">Upload Data</a></li>
+                    <li><a href="#">Edit Data</a></li>
                     <li><a href="#">PHP & MySQL</a></li>
                 </ul>
             </li>
@@ -191,3 +251,4 @@
 </body>
 
 </html>
+

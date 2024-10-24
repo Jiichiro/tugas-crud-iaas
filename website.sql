@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 20, 2024 at 02:04 AM
+-- Generation Time: Oct 24, 2024 at 07:27 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -38,7 +38,46 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id`, `username`, `password`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(2, 'pandi', 'e351836df9fa734a2c7d589f521fa6f4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemasukan`
+--
+
+CREATE TABLE `pemasukan` (
+  `id` int NOT NULL,
+  `tanggal` date NOT NULL,
+  `jumlah` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `pemasukan`
+--
+
+INSERT INTO `pemasukan` (`id`, `tanggal`, `jumlah`) VALUES
+(1, '2024-10-24', '1500000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengeluaran`
+--
+
+CREATE TABLE `pengeluaran` (
+  `id` int NOT NULL,
+  `tanggal` date NOT NULL,
+  `jumlah` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `pengeluaran`
+--
+
+INSERT INTO `pengeluaran` (`id`, `tanggal`, `jumlah`) VALUES
+(1, '2024-10-24', 500000);
 
 -- --------------------------------------------------------
 
@@ -59,7 +98,8 @@ CREATE TABLE `saldo` (
 --
 
 INSERT INTO `saldo` (`id`, `akun_id`, `jumlah_pembayaran`, `tanggal_pembayaran`, `jumlah_saldo`) VALUES
-(1, 1, 10.00, '2024-09-19 23:42:16', 50000.00);
+(1, 1, '10.00', '2024-09-19 23:42:16', '50000.00'),
+(2, 1, '5000.00', '2024-10-24 00:00:00', '500000.00');
 
 --
 -- Indexes for dumped tables
@@ -71,6 +111,18 @@ INSERT INTO `saldo` (`id`, `akun_id`, `jumlah_pembayaran`, `tanggal_pembayaran`,
 ALTER TABLE `akun`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `pemasukan`
+--
+ALTER TABLE `pemasukan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengeluaran`
+--
+ALTER TABLE `pengeluaran`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `saldo`
@@ -87,13 +139,25 @@ ALTER TABLE `saldo`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `pemasukan`
+--
+ALTER TABLE `pemasukan`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `pengeluaran`
+--
+ALTER TABLE `pengeluaran`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `saldo`
 --
 ALTER TABLE `saldo`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
