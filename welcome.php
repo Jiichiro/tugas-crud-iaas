@@ -40,6 +40,7 @@ try {
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <style>
     header {
@@ -72,165 +73,66 @@ try {
 </style>
 
 <body>
-<h1>Pemasukan Bulan Ini</h1>
-    <table border="1">
-        <tr><th>Tanggal</th><th>Jumlah (IDR)</th></tr>
-        <?php if ($pemasukan): ?>
-            <?php foreach ($pemasukan as $row): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($row['tanggal']); ?></td>
-                    <td><?php echo number_format($row['jumlah'], 0, ',', '.'); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr><td colspan="2">Tidak ada data pemasukan untuk bulan ini.</td></tr>
-        <?php endif; ?>
-    </table>
-
-    <h1>Pengeluaran Bulan Ini</h1>
-    <table border="1">
-        <tr><th>Tanggal</th><th>Jumlah (IDR)</th></tr>
-        <?php if ($pengeluaran): ?>
-            <?php foreach ($pengeluaran as $row): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($row['tanggal']); ?></td>
-                    <td><?php echo number_format($row['jumlah'], 0, ',', '.'); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr><td colspan="2">Tidak ada data pengeluaran untuk bulan ini.</td></tr>
-        <?php endif; ?>
-    </table>
-    <header>
-        <img src="assets/images/profile.png" alt="Logo" class="logo" onclick="window.location.href='./profile.php'">
-    </header>
-    <div class="sidebar close">
-        <div class="logo-details">
-            <p class="bx textcustom" style="color: #ffbf36; margin:45px 0 50px 30px; font-size:22px;">K</p>
-            <span class="logo_name textcustom">as</span>
-        </div>
-        <ul class="nav-links">
-            <li>
-                <a href="./saldo.php">
-                    <i class='bx bx-grid-alt'></i>
-                    <span class="link_name">Cek Saldo</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Edit Data</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="iocn-link">
-                    <a href="#">
-                        <i class='bx bx-collection'></i>
-                        <span class="link_name">Edit/Upload Data</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Category</a></li>
-                    <li><a href="./upload_data.php">Upload Data</a></li>
-                    <li><a href="#">Edit Data</a></li>
-                    <li><a href="#">PHP & MySQL</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="iocn-link">
-                    <a href="#">
-                        <i class='bx bx-book-alt'></i>
-                        <span class="link_name">Posts</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Posts</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Login Form</a></li>
-                    <li><a href="#">Card Design</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="link_name">Analytics</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Analytics</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-line-chart'></i>
-                    <span class="link_name">Chart</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Chart</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="iocn-link">
-                    <a href="#">
-                        <i class='bx bx-plug'></i>
-                        <span class="link_name">Plugins</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Plugins</a></li>
-                    <li><a href="#">UI Face</a></li>
-                    <li><a href="#">Pigments</a></li>
-                    <li><a href="#">Box Icons</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-compass'></i>
-                    <span class="link_name">Explore</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Explore</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-history'></i>
-                    <span class="link_name">History</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">History</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="link_name">Setting</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Setting</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="profile-details">
-
-                    <div class="name-job">
-                        <i class='bx bx-log-in'></i>
-                    </div>
-                    <div class="navbar">
-                        <div class="logout-icon">
-                            <a href="logout.php">
-                                <i class='bx bx-log-out'></i>
-                            </a>
-                        </div>
-                    </div>
-
-            </li>
-        </ul>
-    </div>
+    <?php include "sideBar.php";?>
     <section class="home-section">
         <div class="home-content">
             <i class='bx bx-menu'></i>
             <span class="text">Kas Kelas</span>
         </div>
+        <div class="p-10 pt-8 m-8 bg-white rounded-lg shadow-xl">
+            <h1 class="text-2xl font-bold mb-4">Pemasukan Bulan Ini</h1>
+            <table class="min-w-full border-collapse border border-gray-200">
+                <thead>
+                    <tr>
+                        <th class="border border-gray-300 px-4 py-2 text-left">Tanggal</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left">Jumlah (IDR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if ($pemasukan): ?>
+                        <?php foreach ($pemasukan as $row): ?>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2"><?php echo htmlspecialchars($row['tanggal']); ?>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-2">
+                                    <?php echo number_format($row['jumlah'], 0, ',', '.'); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2" colspan="2">Tidak ada data pemasukan untuk bulan ini.</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+
+            <h1 class="text-2xl font-bold mt-8 mb-4">Pengeluaran Bulan Ini</h1>
+            <table class="min-w-full border-collapse border border-gray-200">
+                <thead>
+                    <tr>
+                        <th class="border border-gray-300 px-4 py-2 text-left">Tanggal</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left">Jumlah (IDR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if ($pengeluaran): ?>
+                        <?php foreach ($pengeluaran as $row): ?>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2"><?php echo htmlspecialchars($row['tanggal']); ?>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-2">
+                                    <?php echo number_format($row['jumlah'], 0, ',', '.'); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2" colspan="2">Tidak ada data pengeluaran untuk bulan ini.</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+
     </section>
     <script>
         let arrow = document.querySelectorAll(".arrow");
@@ -251,4 +153,3 @@ try {
 </body>
 
 </html>
-
