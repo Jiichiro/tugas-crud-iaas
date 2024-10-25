@@ -1,14 +1,8 @@
-<?php
-include 'sideBar.php';
-// Konfigurasi database
-$host = "localhost";
-$dbname = "website"; // Ganti dengan nama database Anda
-$username = "root"; // Ganti dengan username database Anda
-$password = ""; // Ganti dengan password database Anda
-
+<?php function isi() {
+include "koneksi.php";
 try {
     // Koneksi ke database
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -27,61 +21,16 @@ try {
             'jumlah_saldo' => $jumlah_saldo
         ]);
 
-        echo "Data saldo berhasil diupload!";
+        echo <<<HTML
+            <script>
+                alert("data berhasil ditambahkan")
+            </script>
+        HTML;
     }
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
-?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="style.css">
-    <!-- Boxiocns CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<style>
-    header {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 10px;
-    }
-
-    /* Styling untuk logo */
-    .logo {
-        max-width: 150px;
-        /* Sesuaikan ukuran logo */
-        height: 50px;
-    }
-
-    /* Memastikan logo berada di pojok kiri atas */
-    header {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100px;
-        z-index: 1000;
-    }
-
-    @font-face {
-        font-family: 'CustomFont';
-        src: url('Poppins-Light.ttf') format('truetype');
-    }
-</style>
-<body>
-    </div>
-    <section class="home-section">
-        <div class="home-content">
-            <i class='bx bx-menu'></i>
-            <span class="text">Upload Data Saldo</span>
-        </div>
+$html = <<<HTML
         <div class="m-8 p-10 bg-white rounded-md shadow-xl">
             <form action="" method="POST">
                 <label for="akun_id">Akun ID</label>
@@ -96,26 +45,12 @@ try {
                 <label for="jumlah_saldo">Jumlah Saldo (IDR):</label>
                 <input type="number" name="jumlah_saldo" placeholder="2.000.000" step="0.01" required class="block border border-gray-700 rounded-sm p-1 w-[300px]"><br>
     
-                <input type="submit" value="Upload">
+                <input type="submit" value="Upload" class="bg-transparent rounded border-2 border-blue-700 arrow-right px-4 py-2 font-bold hover:text-white hover:bg-blue-700 transition duration-500 ease-in-out cursor-pointer">
             </form>
         </div>
-    </section>
-    <script>
-        let arrow = document.querySelectorAll(".arrow");
-        for (var i = 0; i < arrow.length; i++) {
-            arrow[i].addEventListener("click", (e) => {
-                let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-                arrowParent.classList.toggle("showMenu");
-            });
-        }
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarBtn = document.querySelector(".bx-menu");
-        console.log(sidebarBtn);
-        sidebarBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("close");
-        });
-    </script>
-
-</body>
-
-</html>
+HTML;
+return $html;
+}
+include 'main.php';
+echo main("Upload Data Saldo", isi())
+?>
