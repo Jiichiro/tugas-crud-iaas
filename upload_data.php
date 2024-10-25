@@ -85,16 +85,16 @@ try {
         <div class="m-8 p-10 bg-white rounded-md shadow-xl">
             <form action="" method="POST">
                 <label for="akun_id">Akun ID</label>
-                <input type="number" name="akun_id" placeholder="1" required class="block bg-gray border border-gray-700 rounded-sm p-1"><br>
+                <input type="number" name="akun_id" placeholder="1" required class="block border border-gray-700 rounded-sm p-1 w-[300px]"><br>
     
                 <label for="jumlah_pembayaran">Jumlah Pembayaran (IDR):</label>
-                <input type="number" name="jumlah_pembayaran" placeholder="10.000" step="0.01" required class="block"><br>
+                <input type="number" name="jumlah_pembayaran" placeholder="10.000" step="0.01" required class="block border border-gray-700 rounded-sm p-1 w-[300px]"><br>
     
                 <label for="tanggal_pembayaran">Tanggal Pembayaran:</label>
-                <input type="date" name="tanggal_pembayaran" placeholder="1/1/2024" required class="block"><br>
+                <input type="date" name="tanggal_pembayaran" placeholder="1/1/2024" required class="block border border-gray-700 rounded-sm p-1 w-[300px]"><br>
     
                 <label for="jumlah_saldo">Jumlah Saldo (IDR):</label>
-                <input type="number" name="jumlah_saldo" placeholder="2.000.000" step="0.01" required class="block"><br>
+                <input type="number" name="jumlah_saldo" placeholder="2.000.000" step="0.01" required class="block border border-gray-700 rounded-sm p-1 w-[300px]"><br>
     
                 <input type="submit" value="Upload">
             </form>
