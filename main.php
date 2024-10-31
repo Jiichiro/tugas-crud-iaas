@@ -9,7 +9,7 @@
         <!-- Boxiocns CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styled.css">
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <style>
@@ -71,7 +71,7 @@
                     <li><a class="link_name" href="#">Category</a></li>
                     <li><a href="upload_data.php">Upload Data</a></li>
                     <li><a href="edit_data.php">Edit Data</a></li>
-                    <li><a href="#">PHP & MySQL</a></li>
+                    <!-- <li><a href="#">PHP & MySQL</a></li> -->
                 </ul>
             </li>
             <!-- <li>
